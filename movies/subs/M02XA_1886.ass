@@ -1,0 +1,32 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15.0,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:15.71,0:00:19.36,Default,,0,0,0,,I sometimes have a frightening dream.
+Dialogue: 0,0:00:27.95,0:00:29.45,Default,,0,0,0,,Rion!
+Dialogue: 0,0:00:33.45,0:00:37.45,Default,,0,0,0,,Heart rate normal.\NAdminister the Nalcon.
+Dialogue: 0,0:00:38.24,0:00:40.62,Default,,0,0,0,,Won't that fatally destroy his brain cells?
+Dialogue: 0,0:00:40.69,0:00:43.38,Default,,0,0,0,,It might, but we must follow\Nthe Clinic Chief's orders.
+Dialogue: 0,0:00:45.33,0:00:46.83,Default,,0,0,0,,OK.
+Dialogue: 0,0:00:47.92,0:00:49.42,Default,,0,0,0,,Rion...
+Dialogue: 0,0:00:50.61,0:00:52.11,Default,,0,0,0,,Rion!
+Dialogue: 0,0:00:52.82,0:00:55.09,Default,,0,0,0,,Who are you?
+Dialogue: 0,0:00:56.06,0:00:59.34,Default,,0,0,0,,They're coming...\NThey're coming to get me!
+Dialogue: 0,0:01:00.54,0:01:03.01,Default,,0,0,0,,Why are you calling me?
+Dialogue: 0,0:01:03.24,0:01:04.74,Default,,0,0,0,,I'm scared.
+Dialogue: 0,0:01:18.54,0:01:20.78,Default,,0,0,0,,I've never heard of such a\Nquick dosage cycle.
+Dialogue: 0,0:01:20.85,0:01:22.35,Default,,0,0,0,,Me, either.
+Dialogue: 0,0:01:23.32,0:01:26.01,Default,,0,0,0,,I'm afraid it may have\Ndestroyed the patient's memory.
+Dialogue: 0,0:01:27.21,0:01:29.00,Default,,0,0,0,,I'm surprised he's even still alive.
+Dialogue: 0,0:01:37.47,0:01:39.47,Default,,0,0,0,,I'll go check the data.
