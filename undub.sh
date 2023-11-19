@@ -171,6 +171,45 @@ rmdir_safe ./movies/videos/T4
 if [[ "$skip_subs" = false ]]
 then
     echo Applying subtitles
+
+    for f in ./movies/subs/*
+    do
+        rm -f ./movies/frames/*.png
+        video_name=$(basename "$f" | cut -d'_' -f1)
+        file_index=$(basename "$f" | cut -d'_' -f2 | cut -d'.' -f1)
+        patch_path=./movies/patches/$video_name.xml
+        ffmpeg -i ./movies/videos/$video_name.avi -vf subtitles="$f" -vsync 0 ./movies/frames/%04d.png
+        if [[ "$force_patch" = true || ! -e "$patch_path" ]]
+        then
+            echo \<?xml version=\"1.0\"?\> > $patch_path
+            echo \<str-replace version=\"0.3\"\> >> $patch_path
+            for frame in ./movies/frames/*.png
+            do
+                # the jPSXdec documentation suggests using partial-replace for things like subtitles to reduce quality loss
+                # due to re-encoding. I actually found that I got much worse results with partial-replace, though; the subtitles
+                # had frequent bouts of flickering and blurriness. for that reason, we're using replace here.
+                frame_index=$(basename "$frame" | cut -d'.' -f1 | bc)
+                # jPSXdec uses 0-based indexes but ffmpeg uses 1-based indexes
+                echo \<replace frame=\"$(( $frame_index - 1 ))\"\>$frame\</replace\> >> $patch_path
+            done
+            echo \</str-replace\> >> $patch_path
+        fi
+
+        case $(cut -c 1-2 <<< "$video_name") in
+            C_)
+                disc_num=2
+                ;;
+            D_)
+                disc_num=3
+                ;;
+            *)
+                disc_num=1
+                ;;
+        esac
+        jpsxdec -x ./discs/jp_disc$disc_num.bin.idx -i "$file_index" -replaceframes "$patch_path"
+    done
+
+    rm -f ./movies/frames/*.png
 fi
 
 echo Done
