@@ -1,0 +1,22 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15.0,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:06.25,Default,,0,0,0,,Pascalle...  suspicious men in black coats\Nhave been lurking around my house lately.
+Dialogue: 0,0:00:08.70,0:00:11.59,Default,,0,0,0,,Well, we can't keep them together.
+Dialogue: 0,0:00:14.95,0:00:17.42,Default,,0,0,0,,That's exactly what I was thinking.
+Dialogue: 0,0:00:20.02,0:00:21.52,Default,,0,0,0,,We have to separate them.
+Dialogue: 0,0:00:22.49,0:00:24.59,Default,,0,0,0,,I'll take Lilia way from here.
+Dialogue: 0,0:00:26.38,0:00:27.88,Default,,0,0,0,,Thank you for everything.
+Dialogue: 0,0:00:29.46,0:00:32.73,Default,,0,0,0,,I'll contact you once\NLilia is safely hidden.

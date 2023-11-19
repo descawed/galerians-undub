@@ -1,0 +1,23 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15.0,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:49.05,0:00:51.72,Default,,0,0,0,,I escaped from\NMichelangelo Memorial Hospital.
+Dialogue: 0,0:00:52.86,0:00:55.76,Default,,0,0,0,,Knowing nothing but my name.
+Dialogue: 0,0:00:57.83,0:00:59.83,Default,,0,0,0,,I had found a picture of my\Nfamily at the hospital.
+Dialogue: 0,0:01:00.69,0:01:05.00,Default,,0,0,0,,Just when their faces started looking\Nfamiliar, the memory slipped away...
+Dialogue: 0,0:01:05.94,0:01:08.04,Default,,0,0,0,,as if I had never known them.
+Dialogue: 0,0:01:11.28,0:01:13.08,Default,,0,0,0,,What was I doing there?
+Dialogue: 0,0:01:14.59,0:01:17.63,Default,,0,0,0,,My mind was all cloudy, and\NI couldn't remember a thing.
+Dialogue: 0,0:01:20.15,0:01:23.03,Default,,0,0,0,,I was... all alone.

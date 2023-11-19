@@ -1,0 +1,26 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15.0,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.41,0:00:02.86,Default,,0,0,0,,Albert, Rion's fever won't break.
+Dialogue: 0,0:00:03.12,0:00:05.33,Default,,0,0,0,,Don't worry; it'll break by morning.
+Dialogue: 0,0:00:05.60,0:00:07.10,Default,,0,0,0,,But...
+Dialogue: 0,0:00:09.00,0:00:10.50,Default,,0,0,0,,I'm so sorry, Rion.
+Dialogue: 0,0:00:10.52,0:00:12.52,Default,,0,0,0,,Won't you find it in your\Nheart to forgive us?
+Dialogue: 0,0:00:12.98,0:00:15.77,Default,,0,0,0,,I couldn't find another\Nsafe place to hide it.
+Dialogue: 0,0:00:17.00,0:00:19.00,Default,,0,0,0,,If it fell into Dorothy's hands...
+Dialogue: 0,0:00:20.76,0:00:24.16,Default,,0,0,0,,Dr. Pascalle also agreed\Nthat there is no other way.
+Dialogue: 0,0:00:24.87,0:00:26.37,Default,,0,0,0,,I'm so sorry, Rion.
+Dialogue: 0,0:00:26.56,0:00:28.82,Default,,0,0,0,,Humankind's future is in your hands.
+Dialogue: 0,0:00:29.58,0:00:33.62,Default,,0,0,0,,Rion, please forgive us\Nfor doing this to you.

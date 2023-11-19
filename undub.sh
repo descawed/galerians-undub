@@ -175,8 +175,8 @@ then
     for f in ./movies/subs/*
     do
         rm -f ./movies/frames/*.png
-        video_name=$(basename "$f" | cut -d'_' -f1)
-        file_index=$(basename "$f" | cut -d'_' -f2 | cut -d'.' -f1)
+        video_name=$(basename "$f" | cut -d'-' -f1)
+        file_index=$(basename "$f" | cut -d'-' -f2 | cut -d'.' -f1)
         patch_path=./movies/patches/$video_name.xml
         ffmpeg -i ./movies/videos/$video_name.avi -vf subtitles="$f" -vsync 0 ./movies/frames/%04d.png
         if [[ "$force_patch" = true || ! -e "$patch_path" ]]
@@ -207,6 +207,7 @@ then
                 ;;
         esac
         jpsxdec -x ./discs/jp_disc$disc_num.bin.idx -i "$file_index" -replaceframes "$patch_path"
+        # TODO: extract raw file and patch into NA disc here
     done
 
     rm -f ./movies/frames/*.png

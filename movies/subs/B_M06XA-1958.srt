@@ -1,0 +1,4 @@
+1
+99:00:00,000 --> 99:00:00,000
+This video has no verbal dialogue, but it contains non-verbal sounds made by the voice actors.
+This dummy subtitle file is included to force the undub process to include the video.

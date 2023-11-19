@@ -1,0 +1,36 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15.0,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:03.28,0:00:05.69,Default,,0,0,0,,Please spell out your name.
+Dialogue: 0,0:00:06.49,0:00:09.37,Default,,0,0,0,,R. I. O. N.
+Dialogue: 0,0:00:16.71,0:00:19.25,Default,,0,0,0,,The Family Program is top secret.
+Dialogue: 0,0:00:20.05,0:00:21.55,Default,,0,0,0,,Please give the password.
+Dialogue: 0,0:00:27.12,0:00:30.08,Default,,0,0,0,,The Family Program is top secret!
+Dialogue: 0,0:00:30.61,0:00:34.62,Default,,0,0,0,,Access forbidden without password!
+Dialogue: 0,0:00:37.09,0:00:39.46,Default,,0,0,0,,Rion.. last name... Steiner...
+Dialogue: 0,0:00:39.48,0:00:41.82,Default,,0,0,0,,You're a natural, Rion, just as I expected.
+Dialogue: 0,0:00:43.62,0:00:45.12,Default,,0,0,0,,Doctor Lem?
+Dialogue: 0,0:00:46.27,0:00:49.08,Default,,0,0,0,,I can't believe how much you've\Nprogressed in only a month -
+Dialogue: 0,0:00:49.10,0:00:50.60,Default,,0,0,0,,Who am I?
+Dialogue: 0,0:00:50.86,0:00:52.36,Default,,0,0,0,,What is the Family Program?
+Dialogue: 0,0:00:52.96,0:00:56.26,Default,,0,0,0,,Rion, there are many things you\Nare better off not knowing.
+Dialogue: 0,0:00:57.59,0:00:59.26,Default,,0,0,0,,This is Nalcon.
+Dialogue: 0,0:01:00.33,0:01:02.91,Default,,0,0,0,,You'll short-circuit if\NI inject you with it.
+Dialogue: 0,0:01:04.23,0:01:05.73,Default,,0,0,0,,You don't want to die, do you?
+Dialogue: 0,0:01:06.31,0:01:07.81,Default,,0,0,0,,Return to the isolation ward.
+Dialogue: 0,0:01:09.69,0:01:11.19,Default,,0,0,0,,No.
+Dialogue: 0,0:01:11.21,0:01:15.28,Default,,0,0,0,,Ri- Rion? Such strength.
+Dialogue: 0,0:01:24.79,0:01:26.29,Default,,0,0,0,,So be it.
+Dialogue: 0,0:01:28.46,0:01:29.96,Default,,0,0,0,,It's the freeze chamber for you.

@@ -1,0 +1,60 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15.0,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.75,0:00:03.75,Default,,0,0,0,,My dear son, Rion...
+Dialogue: 0,0:00:04.84,0:00:08.72,Default,,0,0,0,,If you ever get this message...
+Dialogue: 0,0:00:09.82,0:00:13.50,Default,,0,0,0,,your mother and I have\Nprobably already been killed.
+Dialogue: 0,0:00:15.48,0:00:18.52,Default,,0,0,0,,But before you start mourning our deaths...
+Dialogue: 0,0:00:19.51,0:00:21.51,Default,,0,0,0,,there is something you must do.
+Dialogue: 0,0:00:23.97,0:00:27.24,Default,,0,0,0,,A friend of mine, Dr. Pascalle...
+Dialogue: 0,0:00:27.77,0:00:33.12,Default,,0,0,0,,completed a next-generation computer,\Nnamed Dorothy, seven years ago.
+Dialogue: 0,0:00:34.21,0:00:37.27,Default,,0,0,0,,Dorothy was a revolutionary computer...
+Dialogue: 0,0:00:37.81,0:00:40.44,Default,,0,0,0,,with the ability to make its own\Ndecisions and repair itself.
+Dialogue: 0,0:00:41.89,0:00:47.24,Default,,0,0,0,,Under her own power, Dorothy grew\Ncompletely new cellular circuits...
+Dialogue: 0,0:00:47.71,0:00:50.58,Default,,0,0,0,,enabling her to abandon her\Nold system kernel.
+Dialogue: 0,0:00:53.53,0:00:56.51,Default,,0,0,0,,Her growth continued smoothly...
+Dialogue: 0,0:00:56.85,0:01:00.32,Default,,0,0,0,,and before long, she was\Ncontrolling her senior computers.
+Dialogue: 0,0:01:01.05,0:01:05.45,Default,,0,0,0,,She rose to the status of\NMichelangelo City's mother computer.
+Dialogue: 0,0:01:07.93,0:01:12.26,Default,,0,0,0,,That was when Dorothy's insanity began.
+Dialogue: 0,0:01:13.57,0:01:18.02,Default,,0,0,0,,She began wondering why such an inferior\Nsystem as humanity should not be wiped out.
+Dialogue: 0,0:01:18.91,0:01:24.29,Default,,0,0,0,,And why she could not kill people, even\Nthough people kill each other.
+Dialogue: 0,0:01:25.67,0:01:32.03,Default,,0,0,0,,So, I told her about the existence of God.
+Dialogue: 0,0:01:33.31,0:01:36.19,Default,,0,0,0,,I told her that God was the\Nmaster of creation.
+Dialogue: 0,0:01:37.63,0:01:40.79,Default,,0,0,0,,God created humankind...
+Dialogue: 0,0:01:41.35,0:01:43.88,Default,,0,0,0,,and our fate is in His hands.
+Dialogue: 0,0:01:45.24,0:01:47.12,Default,,0,0,0,,No one can deny this.
+Dialogue: 0,0:01:48.34,0:01:50.67,Default,,0,0,0,,In Dorothy's case, her\Ncreator was humankind.
+Dialogue: 0,0:01:51.17,0:01:54.81,Default,,0,0,0,,In other words, Dorothy's\Ngod was humankind.
+Dialogue: 0,0:01:55.71,0:01:58.21,Default,,0,0,0,,She must obey the fate we decide for her.
+Dialogue: 0,0:02:01.63,0:02:06.25,Default,,0,0,0,,It appeared Dorothy accepted this\Nand began serving humankind again.
+Dialogue: 0,0:02:07.12,0:02:11.26,Default,,0,0,0,,However, she secretly began simulating\NGod's existence, over and over again...
+Dialogue: 0,0:02:11.82,0:02:13.82,Default,,0,0,0,,until she reached her final solution.
+Dialogue: 0,0:02:15.02,0:02:18.11,Default,,0,0,0,,Her solution was the Family Program.
+Dialogue: 0,0:02:20.03,0:02:23.10,Default,,0,0,0,,Dorothy placed the city's Memorial Hospital\Nunder her control...
+Dialogue: 0,0:02:23.13,0:02:26.04,Default,,0,0,0,,and then began genetic\Nexperiments on humans.
+Dialogue: 0,0:02:26.95,0:02:30.59,Default,,0,0,0,,She wanted to create a race of humans with\Npsychic powers and absolute loyalty to her.
+Dialogue: 0,0:02:31.21,0:02:35.22,Default,,0,0,0,,She called them Galerians...
+Dialogue: 0,0:02:36.79,0:02:40.74,Default,,0,0,0,,and she was their god and creator.
+Dialogue: 0,0:02:41.83,0:02:47.06,Default,,0,0,0,,Dorothy was trying to create her\Nown world, with herself as God.
+Dialogue: 0,0:02:47.71,0:02:52.23,Default,,0,0,0,,The Family Program was a\Nritual for her to become God.
+Dialogue: 0,0:02:55.18,0:02:57.18,Default,,0,0,0,,However, Dr. Pascalle and I...
+Dialogue: 0,0:02:57.65,0:02:59.80,Default,,0,0,0,,had a backup plan in case\NDorothy went out of control.
+Dialogue: 0,0:03:00.41,0:03:05.47,Default,,0,0,0,,In Lilia's mind, we hid a virus program\Nthat could destroy Dorothy...
+Dialogue: 0,0:03:06.67,0:03:12.14,Default,,0,0,0,,and in your mind, we hid a\Nprogram for activating the virus.
+Dialogue: 0,0:03:16.07,0:03:17.67,Default,,0,0,0,,That was five years ago.
+Dialogue: 0,0:03:19.88,0:03:22.79,Default,,0,0,0,,Dorothy fears the virus program\Nmore than anything else.
+Dialogue: 0,0:03:24.05,0:03:29.53,Default,,0,0,0,,Only you can retrieve the virus\Nprogram from Lilia's mind.
+Dialogue: 0,0:03:32.52,0:03:34.02,Default,,0,0,0,,My dear son...
+Dialogue: 0,0:03:35.23,0:03:37.23,Default,,0,0,0,,The future of our race is in your hands.
