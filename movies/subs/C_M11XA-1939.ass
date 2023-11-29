@@ -1,0 +1,69 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.08,0:00:05.56,Default,,0,0,0,,You're a worthy opponent, Rion.\NHow about this? With this...
+Dialogue: 0,0:00:06.04,0:00:07.54,Default,,0,0,0,,- ... I'll be able to crush you.\N- No!
+Dialogue: 0,0:00:08.00,0:00:11.51,Default,,0,0,0,,- You're too weak!\N- Mother told me that moment of shorting...
+Dialogue: 0,0:00:11.54,0:00:13.54,Default,,0,0,0,,- feels oh-so-good.\N- Don't.
+Dialogue: 0,0:00:13.72,0:00:17.43,Default,,0,0,0,,- You've gone insane.\N- We're all slowly but surely going mad.
+Dialogue: 0,0:00:17.46,0:00:19.13,Default,,0,0,0,,You just haven't realized it yet.
+Dialogue: 0,0:00:35.91,0:00:37.41,Default,,0,0,0,,- Almost...\N- Rion!
+Dialogue: 0,0:00:38.31,0:00:39.81,Default,,0,0,0,,- Just a little longer...\N- Stay away!
+Dialogue: 0,0:00:39.84,0:00:42.58,Default,,0,0,0,,Don't kill Rion!
+Dialogue: 0,0:00:53.31,0:00:54.81,Default,,0,0,0,,Are you alright?
+Dialogue: 0,0:00:54.83,0:00:56.33,Default,,0,0,0,,Don't worry about me.
+Dialogue: 0,0:00:57.86,0:01:01.18,Default,,0,0,0,,I don't like myself anyway.
+Dialogue: 0,0:01:01.89,0:01:03.89,Default,,0,0,0,,Oh, I hate this power that I possess!
+Dialogue: 0,0:01:04.90,0:01:08.40,Default,,0,0,0,,I always wanted the end to come...
+Dialogue: 0,0:01:10.46,0:01:14.04,Default,,0,0,0,,but... I never would die.
+Dialogue: 0,0:01:15.84,0:01:17.34,Default,,0,0,0,,What a beautiful snow...
+Dialogue: 0,0:01:18.08,0:01:21.96,Default,,0,0,0,,It's like having a terrifying\Nand wonderful vision.
+Dialogue: 0,0:01:28.65,0:01:34.33,Default,,0,0,0,,If Mother is God, why would she\Ninflict you with such a cruel fate?
+Dialogue: 0,0:01:36.22,0:01:38.84,Default,,0,0,0,,Where did your true self go?
+Dialogue: 0,0:01:40.14,0:01:43.62,Default,,0,0,0,,You are now nothing but an empty\Nvessel pretending to be human.
+Dialogue: 0,0:01:46.59,0:01:50.59,Default,,0,0,0,,We'll never meet again...
+Dialogue: 0,0:01:52.64,0:01:54.14,Default,,0,0,0,,It's too bad.
+Dialogue: 0,0:01:56.53,0:01:58.03,Default,,0,0,0,,Rion...
+Dialogue: 0,0:02:00.07,0:02:02.35,Default,,0,0,0,,I beg you, please destroy me!
+Dialogue: 0,0:02:03.81,0:02:05.62,Default,,0,0,0,,My head aches so!
+Dialogue: 0,0:02:07.61,0:02:10.44,Default,,0,0,0,,- Please, it hurts so bad!\N- Don't!
+Dialogue: 0,0:02:11.58,0:02:14.04,Default,,0,0,0,,- Lilia... it's the only way.\N- I just can't stand it anymore!
+Dialogue: 0,0:02:14.65,0:02:16.15,Default,,0,0,0,,She's decided she wants to die now.
+Dialogue: 0,0:02:17.12,0:02:18.62,Default,,0,0,0,,But...
+Dialogue: 0,0:02:18.64,0:02:20.14,Default,,0,0,0,,Please...
+Dialogue: 0,0:02:20.46,0:02:21.96,Default,,0,0,0,,just do it!
+Dialogue: 0,0:02:23.86,0:02:26.00,Default,,0,0,0,,I can't stand it any longer, either.
+Dialogue: 0,0:02:27.45,0:02:28.95,Default,,0,0,0,,Please forgive me.
+Dialogue: 0,0:02:31.76,0:02:33.76,Default,,0,0,0,,No!
+Dialogue: 0,0:02:42.63,0:02:44.37,Default,,0,0,0,,Lilia, please don't cry.
+Dialogue: 0,0:02:45.77,0:02:47.27,Default,,0,0,0,,Rion...
+Dialogue: 0,0:02:47.40,0:02:48.90,Default,,0,0,0,,you...
+Dialogue: 0,0:02:48.92,0:02:50.42,Default,,0,0,0,,where did you get such power?
+Dialogue: 0,0:02:51.55,0:02:53.15,Default,,0,0,0,,I was experimented on in the hospital.
+Dialogue: 0,0:02:54.19,0:02:55.69,Default,,0,0,0,,They used various PPECs on me.
+Dialogue: 0,0:02:56.24,0:02:57.74,Default,,0,0,0,,Don't believe it...
+Dialogue: 0,0:03:00.80,0:03:02.30,Default,,0,0,0,,What is it?
+Dialogue: 0,0:03:03.91,0:03:05.41,Default,,0,0,0,,It's nothing.
+Dialogue: 0,0:03:14.84,0:03:17.49,Default,,0,0,0,,Birdman died laughing.
+Dialogue: 0,0:03:19.11,0:03:21.88,Default,,0,0,0,,Rainheart died frightened.
+Dialogue: 0,0:03:23.21,0:03:24.71,Default,,0,0,0,,And...
+Dialogue: 0,0:03:25.35,0:03:29.10,Default,,0,0,0,,Rita died hating herself.
+Dialogue: 0,0:03:32.42,0:03:40.04,Default,,0,0,0,,Those kids injected with PPECs now live\Nin fear of Dorothy, the mother computer.
+Dialogue: 0,0:03:40.61,0:03:43.22,Default,,0,0,0,,But she lives in fear of a virus program
+Dialogue: 0,0:03:44.21,0:03:47.73,Default,,0,0,0,,They all live where the\Nnetworks converge...
+Dialogue: 0,0:03:49.43,0:03:53.72,Default,,0,0,0,,in the Mushroom Tower, high\Nabove Michelangelo City.
+Dialogue: 0,0:03:56.71,0:03:58.50,Default,,0,0,0,,I must destroy Dorothy.
+Dialogue: 0,0:04:00.33,0:04:04.26,Default,,0,0,0,,Nothing can stop me now...
+Dialogue: 0,0:04:05.65,0:04:09.25,Default,,0,0,0,,not even the dark city night\Nthat fills my heart with fear.

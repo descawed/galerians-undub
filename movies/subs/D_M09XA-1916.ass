@@ -1,0 +1,31 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.37,0:00:04.21,Default,,0,0,0,,I just can't beat you.
+Dialogue: 0,0:00:07.17,0:00:08.67,Default,,0,0,0,,Cain!
+Dialogue: 0,0:00:08.69,0:00:11.06,Default,,0,0,0,,So what will you do now?
+Dialogue: 0,0:00:11.44,0:00:12.94,Default,,0,0,0,,Kill Mother?
+Dialogue: 0,0:00:16.11,0:00:18.42,Default,,0,0,0,,That's not something I\Ncould ever consider doing.
+Dialogue: 0,0:00:20.11,0:00:26.36,Default,,0,0,0,,Mother has always scolded me... saying\Nchildren shouldn't think for themselves.
+Dialogue: 0,0:00:29.57,0:00:31.07,Default,,0,0,0,,Goodbye...
+Dialogue: 0,0:00:33.84,0:00:35.34,Default,,0,0,0,,Rion...
+Dialogue: 0,0:00:36.99,0:00:39.83,Default,,0,0,0,,The real Rion is dead, isn't he?
+Dialogue: 0,0:00:40.03,0:00:42.20,Default,,0,0,0,,I don't believe it!\NYou are Rion!
+Dialogue: 0,0:00:42.50,0:00:44.50,Default,,0,0,0,,Remember how we used to play together?
+Dialogue: 0,0:00:45.30,0:00:48.57,Default,,0,0,0,,I don't even know if\Nthose memories are real.
+Dialogue: 0,0:00:49.77,0:00:52.36,Default,,0,0,0,,What if I am a Galerian?
+Dialogue: 0,0:00:55.99,0:00:58.15,Default,,0,0,0,,Lilia... let's go.
+Dialogue: 0,0:00:58.92,0:01:00.42,Default,,0,0,0,,Let's go and see Dorothy.
+Dialogue: 0,0:01:00.83,0:01:03.25,Default,,0,0,0,,I want to see Mother.

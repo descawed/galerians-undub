@@ -1,0 +1,22 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15.0,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.49,0:00:04.59,Default,,0,0,0,,Lilia, where are you?
+Dialogue: 0,0:00:06.91,0:00:08.64,Default,,0,0,0,,Why won't you call for me?
+Dialogue: 0,0:00:17.44,0:00:20.49,Default,,0,0,0,,This is the front desk.
+Dialogue: 0,0:00:21.11,0:00:22.71,Default,,0,0,0,,Dial 9 for assistance.
+Dialogue: 0,0:00:23.66,0:00:25.16,Default,,0,0,0,,OK, thank you.
+Dialogue: 0,0:00:40.38,0:00:41.88,Default,,0,0,0,,Lilia...
+Dialogue: 0,0:01:00.31,0:01:03.45,Default,,0,0,0,,There's no escaping now, is there?

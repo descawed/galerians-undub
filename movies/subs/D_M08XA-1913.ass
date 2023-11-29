@@ -1,0 +1,51 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.41,0:00:03.41,Default,,0,0,0,,This is the only one with no name.
+Dialogue: 0,0:00:03.44,0:00:05.54,Default,,0,0,0,,That's you, Rion.
+Dialogue: 0,0:00:06.95,0:00:08.95,Default,,0,0,0,,- Who are you?!\N- Cain.
+Dialogue: 0,0:00:10.20,0:00:12.52,Default,,0,0,0,,Quite a resemblance,\Ndon't you think?
+Dialogue: 0,0:00:13.72,0:00:16.83,Default,,0,0,0,,I mean, we're brothers, after all.
+Dialogue: 0,0:00:18.62,0:00:20.62,Default,,0,0,0,,What the hell is going on?
+Dialogue: 0,0:00:21.21,0:00:23.21,Default,,0,0,0,,You're not as bright as I thought.
+Dialogue: 0,0:00:23.69,0:00:25.69,Default,,0,0,0,,You're my kid brother.
+Dialogue: 0,0:00:27.29,0:00:32.36,Default,,0,0,0,,The real Rion died at\NMichelangelo Hospital.
+Dialogue: 0,0:00:36.33,0:00:37.83,Default,,0,0,0,,You're lying!
+Dialogue: 0,0:00:38.37,0:00:40.37,Default,,0,0,0,,You know what?
+Dialogue: 0,0:00:41.37,0:00:43.71,Default,,0,0,0,,You and I were born here together.
+Dialogue: 0,0:00:44.16,0:00:49.64,Default,,0,0,0,,Rion's memory, including the\Nvirus activation program...
+Dialogue: 0,0:00:49.66,0:00:53.65,Default,,0,0,0,,was implanted in your mind, and your\Nappearance was altered to look like him.
+Dialogue: 0,0:00:53.85,0:00:57.76,Default,,0,0,0,,Then you were sent out to find Lilia.
+Dialogue: 0,0:01:02.81,0:01:08.00,Default,,0,0,0,,Did you really think you escaped\Nfrom the hospital all by yourself?
+Dialogue: 0,0:01:10.85,0:01:12.35,Default,,0,0,0,,No, I am Rion!
+Dialogue: 0,0:01:14.23,0:01:17.40,Default,,0,0,0,,If so, then why do you have\Nthe same powers as us?
+Dialogue: 0,0:01:17.94,0:01:19.94,Default,,0,0,0,,You never thought about that, did you?
+Dialogue: 0,0:01:20.85,0:01:22.60,Default,,0,0,0,,Who was your mother?
+Dialogue: 0,0:01:23.65,0:01:25.15,Default,,0,0,0,,Who was your father?
+Dialogue: 0,0:01:26.90,0:01:29.58,Default,,0,0,0,,You'll probably say you have\Nlots of childhood memories.
+Dialogue: 0,0:01:31.29,0:01:32.98,Default,,0,0,0,,But do you really think they're real?
+Dialogue: 0,0:01:34.57,0:01:36.40,Default,,0,0,0,,You are a Galerian.
+Dialogue: 0,0:01:37.20,0:01:39.30,Default,,0,0,0,,You're one of Dorothy's children.
+Dialogue: 0,0:01:40.37,0:01:41.87,Default,,0,0,0,,He's lying, Rion!
+Dialogue: 0,0:01:42.23,0:01:44.23,Default,,0,0,0,,They're just trying to\Ntrick you all over again!
+Dialogue: 0,0:01:45.09,0:01:48.96,Default,,0,0,0,,The truth is, I really\Nwanted to go get Lilia...
+Dialogue: 0,0:01:49.55,0:01:52.28,Default,,0,0,0,,but Mother chose you instead.
+Dialogue: 0,0:01:52.79,0:01:54.29,Default,,0,0,0,,That really hurt.
+Dialogue: 0,0:01:54.40,0:01:57.65,Default,,0,0,0,,Still, Mother always has her reasons.
+Dialogue: 0,0:01:59.29,0:02:01.52,Default,,0,0,0,,You were born to find Lilia.
+Dialogue: 0,0:02:01.79,0:02:04.12,Default,,0,0,0,,I was born to kill you.
+Dialogue: 0,0:02:04.53,0:02:06.30,Default,,0,0,0,,We live to serve Mother.
+Dialogue: 0,0:02:06.46,0:02:10.35,Default,,0,0,0,,We must obey Mother's\NFamily Program.
+Dialogue: 0,0:02:13.16,0:02:15.15,Default,,0,0,0,,Now it's your turn to die.

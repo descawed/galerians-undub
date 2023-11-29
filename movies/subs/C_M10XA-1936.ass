@@ -1,0 +1,45 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:14.08,0:00:15.58,Default,,0,0,0,,Lilia!
+Dialogue: 0,0:00:22.72,0:00:24.22,Default,,0,0,0,,Rion...
+Dialogue: 0,0:00:33.38,0:00:35.50,Default,,0,0,0,,My father's dead, isn't he?
+Dialogue: 0,0:00:37.28,0:00:39.44,Default,,0,0,0,,I called for him, but there's no reply.
+Dialogue: 0,0:00:42.75,0:00:46.04,Default,,0,0,0,,You look so tired...\NHave they hurt you?
+Dialogue: 0,0:00:46.38,0:00:50.10,Default,,0,0,0,,I've been secretly moving from\Nplace to place over the past month.
+Dialogue: 0,0:00:50.63,0:00:52.13,Default,,0,0,0,,But don't worry; I'm OK.
+Dialogue: 0,0:00:53.37,0:00:55.63,Default,,0,0,0,,I've heard your voice in my\Nmind so many times...
+Dialogue: 0,0:00:55.76,0:00:59.52,Default,,0,0,0,,Telepathy lets two minds become one.
+Dialogue: 0,0:01:00.79,0:01:06.05,Default,,0,0,0,,I can feel your suffering.
+Dialogue: 0,0:01:07.35,0:01:10.23,Default,,0,0,0,,When you feel pain, I feel it, too.
+Dialogue: 0,0:01:10.74,0:01:12.95,Default,,0,0,0,,I'm sorry I took so long.
+Dialogue: 0,0:01:13.64,0:01:16.19,Default,,0,0,0,,- Your voice helped me so much.\N- Congratulations!
+Dialogue: 0,0:01:16.73,0:01:18.32,Default,,0,0,0,,You found her.
+Dialogue: 0,0:01:18.91,0:01:20.52,Default,,0,0,0,,- Who are you?\N- Rita.
+Dialogue: 0,0:01:20.95,0:01:23.24,Default,,0,0,0,,I've come to bash her brains in.
+Dialogue: 0,0:01:24.57,0:01:26.10,Default,,0,0,0,,Are you a Galerian, too?
+Dialogue: 0,0:01:26.18,0:01:31.86,Default,,0,0,0,,Mother fears the virus program\Nhidden in Lilia's mind.
+Dialogue: 0,0:01:32.16,0:01:34.03,Default,,0,0,0,,Mother can't even sleep at night.
+Dialogue: 0,0:01:34.80,0:01:36.48,Default,,0,0,0,,You humans are such fools.
+Dialogue: 0,0:01:36.75,0:01:40.22,Default,,0,0,0,,Our fate lies solely in Mother's hands.
+Dialogue: 0,0:01:42.05,0:01:44.77,Default,,0,0,0,,Now I shall avenge my dear brother.
+Dialogue: 0,0:01:45.71,0:01:49.19,Default,,0,0,0,,See, Rainheart wasn't too bright,\Nbut he was my pride and joy.
+Dialogue: 0,0:01:49.91,0:01:51.91,Default,,0,0,0,,He was gentle as could be, don't you see?
+Dialogue: 0,0:01:53.28,0:01:54.98,Default,,0,0,0,,He was the only brother that I had left.
+Dialogue: 0,0:01:55.05,0:01:58.40,Default,,0,0,0,,That is why I'm going to make sure that\Nyou die a slow and extremely painful death.
+Dialogue: 0,0:02:01.38,0:02:02.88,Default,,0,0,0,,Lilia!
+Dialogue: 0,0:02:03.72,0:02:07.65,Default,,0,0,0,,Don't worry! I know that I can disrupt\Nher psychokinesis with my power!
+Dialogue: 0,0:02:11.96,0:02:13.46,Default,,0,0,0,,You little punk!
+Dialogue: 0,0:02:13.90,0:02:15.40,Default,,0,0,0,,Lilia!

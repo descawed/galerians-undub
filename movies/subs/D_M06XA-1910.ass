@@ -1,0 +1,27 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.26,0:00:03.76,Default,,0,0,0,,Rita?!
+Dialogue: 0,0:00:05.55,0:00:07.70,Default,,0,0,0,,So after Rainheart comes you?
+Dialogue: 0,0:00:09.61,0:00:11.11,Default,,0,0,0,,You can't fool me anymore.
+Dialogue: 0,0:00:11.65,0:00:13.38,Default,,0,0,0,,You're just a psycho-illusion.
+Dialogue: 0,0:00:14.34,0:00:15.84,Default,,0,0,0,,Rion, wait!
+Dialogue: 0,0:00:16.22,0:00:17.72,Default,,0,0,0,,Don't go any further!
+Dialogue: 0,0:00:18.49,0:00:19.99,Default,,0,0,0,,You'll be killed!
+Dialogue: 0,0:00:21.48,0:00:24.76,Default,,0,0,0,,You're not real, and I'm\Nnot gonna listen to you.
+Dialogue: 0,0:00:25.87,0:00:27.37,Default,,0,0,0,,Rion...
+Dialogue: 0,0:00:27.84,0:00:29.84,Default,,0,0,0,,Mother will surely kill you too.
+Dialogue: 0,0:00:30.76,0:00:32.26,Default,,0,0,0,,She is very frightening!
+Dialogue: 0,0:00:33.69,0:00:35.19,Default,,0,0,0,,Goodbye... Rita.

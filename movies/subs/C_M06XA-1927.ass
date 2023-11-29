@@ -1,0 +1,24 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,12.2,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:03.49,0:00:05.16,Default,,0,0,0,,You're new around here, huh?
+Dialogue: 0,0:00:06.93,0:00:11.55,Default,,0,0,0,,You're so young...\Nyet you're hooked, ain't ya?
+Dialogue: 0,0:00:14.59,0:00:16.09,Default,,0,0,0,,How did you know?
+Dialogue: 0,0:00:16.35,0:00:18.38,Default,,0,0,0,,Your face, your face!
+Dialogue: 0,0:00:21.02,0:00:23.79,Default,,0,0,0,,You look wasted.
+Dialogue: 0,0:00:25.32,0:00:28.20,Default,,0,0,0,,You know, you remind me of someone.\NOne of my best customers.
+Dialogue: 0,0:00:28.95,0:00:30.63,Default,,0,0,0,,So, what'll it be?
+Dialogue: 0,0:00:32.44,0:00:33.94,Default,,0,0,0,,Skip?
+Dialogue: 0,0:00:34.27,0:00:35.77,Default,,0,0,0,,Appolinar?

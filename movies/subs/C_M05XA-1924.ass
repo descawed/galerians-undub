@@ -1,0 +1,21 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15.0,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.53,0:00:02.03,Default,,0,0,0,,What do you want?
+Dialogue: 0,0:00:02.39,0:00:04.07,Default,,0,0,0,,What are you doing?
+Dialogue: 0,0:00:04.17,0:00:07.28,Default,,0,0,0,,Fixing the pipes.
+Dialogue: 0,0:00:08.05,0:00:12.20,Default,,0,0,0,,This slummy hotel still uses steam heating.
+Dialogue: 0,0:00:13.55,0:00:15.55,Default,,0,0,0,,City power is ridiculously expensive.
+Dialogue: 0,0:00:16.01,0:00:19.13,Default,,0,0,0,,Besides, the supply is very limited.

@@ -1,0 +1,40 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.53,0:00:05.30,Default,,0,0,0,,No, Rion!
+Dialogue: 0,0:00:06.70,0:00:09.86,Default,,0,0,0,,Lilia... send me the virus.
+Dialogue: 0,0:00:15.57,0:00:17.82,Default,,0,0,0,,Stop, Rion!
+Dialogue: 0,0:00:19.38,0:00:20.88,Default,,0,0,0,,Please don't!
+Dialogue: 0,0:00:23.61,0:00:25.11,Default,,0,0,0,,Rion!
+Dialogue: 0,0:00:26.37,0:00:27.87,Default,,0,0,0,,Stop!
+Dialogue: 0,0:00:31.07,0:00:32.57,Default,,0,0,0,,I...
+Dialogue: 0,0:00:33.71,0:00:35.21,Default,,0,0,0,,was wrong!
+Dialogue: 0,0:00:38.46,0:00:46.14,Default,,0,0,0,,I will... treat... you better!
+Dialogue: 0,0:00:47.27,0:00:49.55,Default,,0,0,0,,Goodbye... Mother.
+Dialogue: 0,0:01:39.67,0:01:42.47,Default,,0,0,0,,Rion, we've got to get out\Nof here or we'll die too!
+Dialogue: 0,0:01:43.89,0:01:45.53,Default,,0,0,0,,It's OK, Lilia...
+Dialogue: 0,0:01:47.24,0:01:48.76,Default,,0,0,0,,You go.
+Dialogue: 0,0:01:49.63,0:01:55.26,Default,,0,0,0,,- No!\N- Please... just let me die here...
+Dialogue: 0,0:01:56.36,0:01:57.86,Default,,0,0,0,,Don't say that!
+Dialogue: 0,0:01:58.30,0:02:03.78,Default,,0,0,0,,Please, Lilia... just let me die.
+Dialogue: 0,0:02:06.47,0:02:12.64,Default,,0,0,0,,but... I am the real Rion...\Naren't I?
+Dialogue: 0,0:02:13.80,0:02:15.80,Default,,0,0,0,,Yes, you are the real Rion!
+Dialogue: 0,0:02:16.98,0:02:18.98,Default,,0,0,0,,There can only be one of you!
+Dialogue: 0,0:02:20.59,0:02:22.86,Default,,0,0,0,,Thank you... Lilia...
+Dialogue: 0,0:02:24.11,0:02:26.35,Default,,0,0,0,,so... you have to come with me!
+Dialogue: 0,0:02:28.55,0:02:30.05,Default,,0,0,0,,Rion?
+Dialogue: 0,0:02:30.53,0:02:32.03,Default,,0,0,0,,Rion?!
+Dialogue: 0,0:02:34.11,0:02:37.92,Default,,0,0,0,,I'm so glad... we met...
+Dialogue: 0,0:02:40.07,0:02:41.57,Default,,0,0,0,,Rion!

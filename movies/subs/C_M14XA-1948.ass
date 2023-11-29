@@ -1,0 +1,23 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 208
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.21,0:00:05.99,Default,,0,0,0,,What do you want? It's too late for\Napologies! I'd rather die, I tell you!
+Dialogue: 0,0:00:09.01,0:00:11.01,Default,,0,0,0,,I'm sorry, I thought it was someone else.
+Dialogue: 0,0:00:12.96,0:00:15.24,Default,,0,0,0,,How did you get in here?
+Dialogue: 0,0:00:15.82,0:00:17.97,Default,,0,0,0,,Th- The door was open.
+Dialogue: 0,0:00:19.84,0:00:21.34,Default,,0,0,0,,Oh?
+Dialogue: 0,0:00:22.76,0:00:25.74,Default,,0,0,0,,Well, you'd better get out of here.\NThis is no place for kids.
+Dialogue: 0,0:00:26.22,0:00:30.49,Default,,0,0,0,,I'm looking for someone.\NI'm looking for a girl named Lilia.
+Dialogue: 0,0:00:32.50,0:00:34.62,Default,,0,0,0,,Hm. Don't know anybody by that name.

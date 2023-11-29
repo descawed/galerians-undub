@@ -1,0 +1,34 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:17.67,0:00:19.17,Default,,0,0,0,,Please...
+Dialogue: 0,0:00:19.89,0:00:21.39,Default,,0,0,0,,Don't tell mother.
+Dialogue: 0,0:00:22.48,0:00:25.66,Default,,0,0,0,,Don't tell her I failed.
+Dialogue: 0,0:00:26.48,0:00:31.26,Default,,0,0,0,,She'll scream at me! And then\Nmake me take that horrible medicine!
+Dialogue: 0,0:00:32.02,0:00:35.14,Default,,0,0,0,,Mother just wants you to get stronger.
+Dialogue: 0,0:00:35.76,0:00:37.86,Default,,0,0,0,,You must take your medicine.
+Dialogue: 0,0:00:38.15,0:00:42.74,Default,,0,0,0,,But... it turns me into a monster!
+Dialogue: 0,0:00:43.71,0:00:46.42,Default,,0,0,0,,- They're destroying my true self!\N- It's already 3 o'clock.
+Dialogue: 0,0:00:47.23,0:00:48.82,Default,,0,0,0,,Time for your medicine.
+Dialogue: 0,0:00:49.89,0:00:52.86,Default,,0,0,0,,No! It's only 2:50!
+Dialogue: 0,0:00:53.93,0:00:55.71,Default,,0,0,0,,It's not time yet!
+Dialogue: 0,0:00:59.63,0:01:01.13,Default,,0,0,0,,You're wrong...
+Dialogue: 0,0:01:02.36,0:01:04.16,Default,,0,0,0,,I'm not the killer.
+Dialogue: 0,0:01:04.55,0:01:06.63,Default,,0,0,0,,There's a beast lurking in my mind.
+Dialogue: 0,0:01:06.97,0:01:09.98,Default,,0,0,0,,It makes me look like the killer...
+Dialogue: 0,0:01:10.61,0:01:12.11,Default,,0,0,0,,but I didn't do it...
+Dialogue: 0,0:01:13.60,0:01:15.10,Default,,0,0,0,,You've gotta believe me...
+Dialogue: 0,0:01:19.66,0:01:23.67,Default,,0,0,0,,You must not tell mother I failed...
+Dialogue: 0,0:01:24.93,0:01:26.93,Default,,0,0,0,,Don't... tell her...

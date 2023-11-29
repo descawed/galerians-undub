@@ -1,0 +1,26 @@
+[Script Info]
+; This is an Advanced Sub Station Alpha v4+ script.
+Title: 
+ScriptType: v4.00+
+PlayDepth: 0
+ScaledBorderAndShadow: Yes
+PlayResX: 320
+PlayResY: 176
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,15.0,&H00FFFFFF,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,1,1,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.46,0:00:07.84,Default,,0,0,0,,So the program that Mother fears is\Nhidden behind that pretty face of yours?
+Dialogue: 0,0:00:09.18,0:00:12.27,Default,,0,0,0,,Wh- Who are you?
+Dialogue: 0,0:00:15.94,0:00:18.73,Default,,0,0,0,,Does it really matter?\NYou're gonna die anyway.
+Dialogue: 0,0:00:20.10,0:00:22.90,Default,,0,0,0,,Ow, my head aches!
+Dialogue: 0,0:00:25.01,0:00:28.14,Default,,0,0,0,,Who's sending out that\Npowerful telepathic force?
+Dialogue: 0,0:00:29.83,0:00:31.33,Default,,0,0,0,,You're not real!
+Dialogue: 0,0:00:32.24,0:00:34.24,Default,,0,0,0,,You're just a psychic illusion!
+Dialogue: 0,0:00:36.29,0:00:39.42,Default,,0,0,0,,And... if I just close my mind...
+Dialogue: 0,0:00:40.43,0:00:41.93,Default,,0,0,0,,you'll disappear.
+Dialogue: 0,0:00:47.22,0:00:49.76,Default,,0,0,0,,I feel the presence of\NGalerians in this tower!
+Dialogue: 0,0:00:50.42,0:00:53.05,Default,,0,0,0,,And... they're very powerful.
