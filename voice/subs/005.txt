@@ -1,0 +1,3 @@
+$r
+Rion, where are you?$p(116)$rPlease help me, hurry! Hurry!$p(300)$rWho are you?$p(371)$rAnd why do I hear your voice in my mind?$p(492)$rRion, where are you?$p(627)
+Rion. Rion!$p(170)$rThat voice again!$p(296)$r... Lilia? Is it Lilia?$p(443)$rThey're coming to get me!$p(570)$rLilia, where are you?$p(681)$rHelp me, Rion!$p(756)$rPlease, hurry!$p(871)

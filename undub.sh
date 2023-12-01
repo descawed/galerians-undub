@@ -30,11 +30,19 @@ jpsxdec() {
 }
 
 cdpatch() {
-    python3 -m psx.cd "$@"
+    python3 -m psx.cd patch "$@"
+}
+
+cdextract() {
+    python3 -m psx.cd extract "$@"
 }
 
 cdb() {
     python3 -m galsdk.db "$@"
+}
+
+sdb() {
+    python3 -m galsdk.string "$@"
 }
 
 mxa() {
@@ -259,10 +267,9 @@ then
             do
                 # pre-increment jp_frame because ffmpeg uses 1-based indexes
                 jp_path=./movies/frames/$(( ++jp_frame )).png
-                # ffmpeg can't edit files in place, so output to a temp image, remove the original, then rename the temp
+                # ffmpeg can't edit files in place, so output to a temp image then replace the original
                 ffmpeg -y -i "$jp_path" -i ./movies/title_frames/$(( na_frame++ )).png -filter_complex "[1]crop=$w:$h:$x:$y[t];[0][t]overlay=$x:$y" -update 1 ./movies/frames/tmp.png
-                rm -f "$jp_path"
-                mv ./movies/frames/tmp.png "$jp_path"
+                mv -f ./movies/frames/tmp.png "$jp_path"
                 ((num_frames--))
             done
         fi
@@ -273,7 +280,7 @@ then
     done
 
     # patch raw videos into the NA discs
-    header Patching NA FMVs
+    header Patching FMVs
 
     for f in $(find ./movies/raw/T4 -type f -name \*.STR)
     do
@@ -303,7 +310,9 @@ then
                 ;;
         esac
 
-        cdpatch -r ./discs/na_disc$disc_num.bin "\T4\MOV$suffix\\$video_name;1" "$f"
+        echo -n "Patching $video_name... "
+        cdpatch -r ./discs/na_disc$disc_num.bin "\\T4\\MOV$suffix\\$video_name;1" "$f"
+        echo done
     done
 
     # cleanup
@@ -326,5 +335,66 @@ then
     rmdir_safe ./movies/raw/T4/MOV_D
     rmdir_safe ./movies/raw/T4
 fi
+
+header Patching dialogue
+
+for disc_num in {1..3}
+do
+    case "$disc_num" in
+        1)
+            jp_exe_name=SLPS_021.92
+            na_exe_name=SLUS_009.86
+            ;;
+        2)
+            jp_exe_name=SLPS_021.93
+            na_exe_name=SLUS_010.98
+            ;;
+        3)
+            jp_exe_name=SLPS_021.94
+            na_exe_name=SLUS_010.99
+            ;;
+    esac
+
+    rm -f ./voice/extract/SL*
+    rm -f ./voice/extract/*.BIN
+    rm -f ./voice/extract/DISPLAY.CDB
+    rm -f ./voice/extract/strings.txt
+    rm -f ./voice/mxa/XA.MXA
+    rm -f ./voice/mxa/*.XDB
+    rm -f ./voice/display/0*
+    echo -n "Extracting from disc $disc_num... "
+    cdextract ./discs/na_disc$disc_num.bin ./voice/extract "\\$na_exe_name;1" "\\T4\\DISPLAY.CDB;1"
+    cdextract ./discs/jp_disc$disc_num.bin ./voice/extract "\\T4\\$jp_exe_name;1"
+    cdextract -r ./discs/jp_disc$disc_num.bin ./voice/extract "\\T4\\XA"
+    echo done
+
+    # patch the exe to display subtitles for XA audio
+    echo -n "Patching EXE... "
+    xdelta3 -d -s "./voice/extract/$na_exe_name" "./bin/$na_exe_name.xdelta" "./voice/extract/$na_exe_name.patched"
+    cdpatch ./discs/na_disc$disc_num.bin "\\$na_exe_name;1" "./voice/extract/$na_exe_name.patched"
+    echo done
+
+    # export Japanese dialogue to Western format
+    echo -n "Patching audio... "
+    cdb unpack ./voice/extract/DISPLAY.CDB ./voice/display
+    mxa "./voice/extract/$jp_exe_name" "$disc_num" ./voice/mxa $(find ./voice/extract -name \*.BIN | sort)
+    xdb_name=$(printf '%03d' $(( disc_num - 1 )))
+    mv -f "./voice/mxa/$xdb_name.XDB" "./voice/display/$xdb_name"
+    cdpatch -r ./discs/na_disc$disc_num.bin "\\T4\\XA.MXA;1" ./voice/mxa/XA.MXA
+    echo done
+
+    # add subtitle messages
+    echo -n "Patching messages... "
+    for f in ./voice/subs/*.txt
+    do
+        index=$(basename "$f" | cut -d'.' -f1)
+        sdb unpack "./voice/display/$index" ./voice/extract/strings.txt
+        cat "$f" >> ./voice/extract/strings.txt
+        sdb pack ./voice/extract/strings.txt "./voice/display/$index"
+    done
+    cdb pack ./voice/extract/DISPLAY.CDB $(find ./voice/display -name 0\* | sort)
+    cdpatch ./discs/na_disc$disc_num.bin "\\T4\\DISPLAY.CDB;1" ./voice/extract/DISPLAY.CDB
+    echo done
+done
 
 echo Done
