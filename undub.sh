@@ -4,7 +4,7 @@ set -euo pipefail
 
 if [[ "$#" -lt 8 ]]
 then
-    echo usage: $0 jpsxdec.jar galsdk jp_disc1 jp_disc2 jp_disc3 na_disc1 na_disc2 na_disc3 [--clean] [--force-jp-copy] [--skip-na-copy] [--force-index] [--force-export] [--skip-subs] [--force-patch]
+    echo usage: $0 jpsxdec.jar galsdk jp_disc1 jp_disc2 jp_disc3 na_disc1 na_disc2 na_disc3 [--clean] [--force-jp-copy] [--skip-na-copy] [--force-index] [--force-export] [--skip-subs] [--force-patch] [--force-assemble] [--as mips-assembler] [--ld mips-linker]
     exit 1
 fi
 
@@ -31,6 +31,10 @@ jpsxdec() {
 
 cdpatch() {
     python3 -m psx.cd patch "$@"
+}
+
+exepatch() {
+    python3 -m psx.exe "$@"
 }
 
 cdextract() {
@@ -67,6 +71,21 @@ export_videos() {
     done
 }
 
+build_patches() {
+    for f in ./exe/src/*.$1.s
+    do
+        address=$(basename "$f" | cut -d'.' -f1)
+        object_path="./exe/bin/$address.$1.o"
+        bin_path="./exe/bin/$address.$1.bin"
+        if [[ ! -e "$bin_path" || "$f" -nt "$bin_path" || "$force_assemble" = true ]]
+        then
+            "$as" -o "$object_path" --no-pad-sections -EL -mips1 -mno-pdr "$f"
+            echo "SECTIONS { . = 0x$address; .text . : SUBALIGN(0) { *(.text) } /DISCARD/ : { *(*) } }" > ./exe/src/linker.ld
+            "$ld" -e "0x$address" --oformat binary -o "$bin_path" -T ./exe/src/linker.ld -s "$object_path"
+        fi
+    done
+}
+
 rmdir_safe() {
     if [[ -d "$1" ]]
     then
@@ -81,6 +100,10 @@ force_index=false
 force_export=false
 skip_subs=false
 force_patch=false
+force_assemble=false
+# tools come from binutils-mips-linux-gnu
+as=mips-linux-gnu-as
+ld=mips-linux-gnu-ld
 
 shift 8
 while (( "$#" ))
@@ -111,6 +134,17 @@ do
             ;;
         --skip-subs)
             skip_subs=true
+            ;;
+        --force-assemble)
+            force_assemble=true
+            ;;
+        --as)
+            shift
+            as=$1
+            ;;
+        --ld)
+            shift
+            ld=$1
             ;;
         *)
             echo Unknown option $1
@@ -338,6 +372,7 @@ fi
 
 header Patching dialogue
 
+build_patches shared
 for disc_num in {1..3}
 do
     case "$disc_num" in
@@ -363,15 +398,20 @@ do
     rm -f ./voice/mxa/*.XDB
     rm -f ./voice/display/0*
     echo -n "Extracting from disc $disc_num... "
-    cdextract ./discs/na_disc$disc_num.bin ./voice/extract "\\$na_exe_name;1" "\\T4\\DISPLAY.CDB;1"
+    cdextract ./discs/na_disc$disc_num.bin ./voice/extract "\\$na_exe_name;1" '\T4\DISPLAY.CDB;1'
     cdextract ./discs/jp_disc$disc_num.bin ./voice/extract "\\T4\\$jp_exe_name;1"
-    cdextract -r ./discs/jp_disc$disc_num.bin ./voice/extract "\\T4\\XA"
+    cdextract -r ./discs/jp_disc$disc_num.bin ./voice/extract '\T4\XA'
     echo done
 
     # patch the exe to display subtitles for XA audio
     echo -n "Patching EXE... "
-    xdelta3 -d -s "./voice/extract/$na_exe_name" "./bin/$na_exe_name.xdelta" "./voice/extract/$na_exe_name.patched"
-    cdpatch ./discs/na_disc$disc_num.bin "\\$na_exe_name;1" "./voice/extract/$na_exe_name.patched"
+    build_patches $disc_num
+    for f in ./exe/bin/*.shared.bin ./exe/bin/*.$disc_num.bin
+    do
+        address=$(basename "$f" | cut -d'.' -f1)
+        exepatch "./voice/extract/$na_exe_name" "$address" "$f"
+    done
+    cdpatch ./discs/na_disc$disc_num.bin "\\$na_exe_name;1" "./voice/extract/$na_exe_name"
     echo done
 
     # export Japanese dialogue to Western format
@@ -380,7 +420,7 @@ do
     mxa "./voice/extract/$jp_exe_name" "$disc_num" ./voice/mxa $(find ./voice/extract -name \*.BIN | sort)
     xdb_name=$(printf '%03d' $(( disc_num - 1 )))
     mv -f "./voice/mxa/$xdb_name.XDB" "./voice/display/$xdb_name"
-    cdpatch -r ./discs/na_disc$disc_num.bin "\\T4\\XA.MXA;1" ./voice/mxa/XA.MXA
+    cdpatch -r ./discs/na_disc$disc_num.bin '\T4\XA.MXA;1' ./voice/mxa/XA.MXA
     echo done
 
     # add subtitle messages
@@ -393,8 +433,19 @@ do
         sdb pack ./voice/extract/strings.txt "./voice/display/$index"
     done
     cdb pack ./voice/extract/DISPLAY.CDB $(find ./voice/display -name 0\* | sort)
-    cdpatch ./discs/na_disc$disc_num.bin "\\T4\\DISPLAY.CDB;1" ./voice/extract/DISPLAY.CDB
+    cdpatch ./discs/na_disc$disc_num.bin '\T4\DISPLAY.CDB;1' ./voice/extract/DISPLAY.CDB
     echo done
 done
+
+# cleanup
+rm -f ./exe/bin/*.o
+rm -f ./exe/src/*.ld
+rm -f ./voice/extract/SL*
+rm -f ./voice/extract/*.BIN
+rm -f ./voice/extract/DISPLAY.CDB
+rm -f ./voice/extract/strings.txt
+rm -f ./voice/mxa/XA.MXA
+rm -f ./voice/mxa/*.XDB
+rm -f ./voice/display/0*
 
 echo Done
