@@ -1,0 +1,47 @@
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+$r
+Activate the shooter.$p(60)
+OK.$p(52)
+That's right!$p(27)$rActivate the shooter.$p(89)
+OK.$p(49)
+How does this shooter work?$p(85)$rThere are no switches or anything on it.$p(144)
+It's probably the only way to get to the other rooms.$p(105)
+Rion!$p(52)
+Lilia!$p(46)
+Damn it!$p(40)Lilia!$p(97)
+I can't figure it out.$p(60)
+Rion? Rion? Can you hear me?$p(136)
+Lilia! Where are you?$p(104)
+I don't know...$p(73)
+but the same lights as those on that shooter are here.$p(150)
+They're probably our key to the other rooms.$p(140)
+Let me try it.$p(75)
+Lilia!$p(30)
+Rion! Now is our only chance to reach the Hands of God!$p(120)
+Lilia. Can you hear me?$p(75)
+Yes, I can hear you.$p(83)
+Let's go to the next floor.$p(60)
+OK.$p(51)

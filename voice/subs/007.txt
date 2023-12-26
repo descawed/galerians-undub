@@ -1,0 +1,25 @@
+$r
+$r
+$r
+$r
+$r
+You'll find what you're looking for in room 204.$p(154)
+Knock like this to get in.$p(82)
+I won't fail this time, Mother.$p(119)
+Oh, it's you again.$p(60)
+What are you doing?$p(68)
+Are you blind?$p(35)$rI'm looking at the hotel blueprints.$p(135)
+They demolished the old hotel to build this one...$p(157)
+but they kept the same crummy old plumbing.$p(52)
+The hotel shares a boiler with that abandoned restaurant next door.$p(141)$rYou know, I really hate this building.$p(205)
+So I can get to that restaurant...$p(68)
+by going through the boiler room?$p(113)
+I suppose so.$p(85)$rBut why bother?$p(145)$rIt's out of business, so there's nothing there now.$p(211)
+OK, thanks.$p(60)
+Welcome to the Babylon Hotel.$p(45)$rA room for one?$p(97)
+Is there a girl by the name of Lilia staying here?$p(83)
+Lilia?$p(55)$rThere's no one by that name staying here.$p(155)
+Your room is number 302.$p(83)
+Come on in.$p(46)
+Alright, already what do you want?$p(60)
+I want to ask you something.$p(68)

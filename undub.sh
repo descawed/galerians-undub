@@ -417,7 +417,7 @@ do
     # export Japanese dialogue to Western format
     echo -n "Patching audio... "
     cdb unpack ./voice/extract/DISPLAY.CDB ./voice/display
-    mxa "./voice/extract/$jp_exe_name" "$disc_num" ./voice/mxa $(find ./voice/extract -name \*.BIN | sort)
+    mxa -m "./voice/mxa/$disc_num.json" "./voice/extract/$jp_exe_name" "$disc_num" ./voice/mxa $(find ./voice/extract -name \*.BIN | sort)
     xdb_name=$(printf '%03d' $(( disc_num - 1 )))
     mv -f "./voice/mxa/$xdb_name.XDB" "./voice/display/$xdb_name"
     cdpatch -r ./discs/na_disc$disc_num.bin '\T4\XA.MXA;1' ./voice/mxa/XA.MXA
