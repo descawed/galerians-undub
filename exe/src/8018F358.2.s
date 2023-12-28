@@ -15,7 +15,7 @@ lui $v0, 0x801b
 addiu $v0, $v0, -0xcf8
 lw $v1, 0($v0) /* 0-based disc number */
 lh $a0, 0x26($s1) /* XA index */
-addiu $a0, $a0, 73 /* subtitle message index = num original messages in stage D + XA index */
+addiu $a0, $a0, 182 /* subtitle message index = num original messages in stage C + XA index */
 /* show subtitle message */
 sw $a0, 0x44($v0)
 lw $a0, 0x40($v0)

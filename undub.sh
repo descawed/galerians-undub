@@ -4,7 +4,35 @@ set -euo pipefail
 
 if [[ "$#" -lt 8 ]]
 then
-    echo usage: $0 jpsxdec.jar galsdk jp_disc1 jp_disc2 jp_disc3 na_disc1 na_disc2 na_disc3 [--clean] [--force-jp-copy] [--skip-na-copy] [--force-index] [--force-export] [--skip-subs] [--force-patch] [--force-assemble] [--as mips-assembler] [--ld mips-linker]
+    echo usage: $0 JPSXDEC GALSDK JP_DISC1 JP_DISC2 JP_DISC3 NA_DISC1 NA_DISC2 NA_DISC3 [--clean] [--force-jp-copy] [--skip-na-copy] [--force-index] [--force-export] [--skip-subs] [--force-patch] [--skip-fmvs] [--skip-dialogue] [--force-assemble] [--skip-assemble] [--skip-sound] [--skip-delta] [--java java-cmd] [--python python-cmd] [--ffmpeg ffmpeg-cmd] [--xdelta xdelta-cmd] '[--compression djw|fgk|lzma|none]' [--as mips-assembler] [--ld mips-linker]
+    echo '    JPSXDEC: path to jpsxdec.jar'
+    echo '    GALSDK: path to galsdk root directory'
+    echo '    JP_DISC1: path to Japan disc 1 (SLPS-02192)'
+    echo '    JP_DISC2: path to Japan disc 2 (SLPS-02193)'
+    echo '    JP_DISC3: path to Japan disc 3 (SLPS-02194)'
+    echo '    NA_DISC1: path to North America disc 1 (SLUS-00986)'
+    echo '    NA_DISC2: path to North America disc 2 (SLUS-01098)'
+    echo '    NA_DISC3: path to North America disc 3 (SLUS-01099)'
+    echo '    --clean: enable all --force options (except --force-assemble) and disable all --skip options'
+    echo '    --force-jp-copy: copy Japan discs even if they already exist'
+    echo "    --skip-na-copy: don't copy North America discs (this is normally always done because the undub process alters these files)"
+    echo '    --force-index: recreate jPSXdec indexes even if they already exist'
+    echo "    --force-export: export FMVs from the Japan discs even if they've already been exported"
+    echo "    --skip-subs: don't burn subtitles into exported FMVs"
+    echo '    --force-patch: recreate jPSXdec subtitle patch files even if they already exist'
+    echo "    --skip-fmvs: don't copy FMVs to North America discs"
+    echo "    --skip-dialogue: don't copy non-FMV spoken dialogue to North America discs or apply relevant patches"
+    echo '    --force-assemble: assemble code patches even if binaries already exist and are newer'
+    echo "    --skip-assemble: as long as binaries exist, don't assemble code patches even if the source files are newer"
+    echo "    --skip-sound: don't copy non-cutscene speech and sound effects to North America discs"
+    echo "    --skip-delta: don't create xdelta patches of the changes applied"
+    echo '    --java: Java command name/path to run jPSXdec with (default: java)'
+    echo '    --python: Python command name/path to run galsdk with (default: python3)'
+    echo '    --ffmpeg: ffmpeg command name/path for FMV subtitle process (default: ffmpeg)'
+    echo '    --xdelta: xdelta command name/path for creating final patches (default: xdelta3)'
+    echo '    --compression: compression algorithm to use with xdelta (default: lzma)'
+    echo '    --as: assembler to use for assembling code patches (default: mips-linux-gnu-as)'
+    echo '    --ld: linker to use for creating patch binaries (default: mips-linxu-gnu-ld)'
     exit 1
 fi
 
@@ -26,31 +54,31 @@ na_disc2_in=$7
 na_disc3_in=$8
 
 jpsxdec() {
-    java -jar "$jpsxdec_jar" "$@"
+    "$java" -jar "$jpsxdec_jar" "$@"
 }
 
 cdpatch() {
-    python3 -m psx.cd patch "$@"
+    "$python" -m psx.cd patch "$@"
 }
 
 exepatch() {
-    python3 -m psx.exe "$@"
+    "$python" -m psx.exe "$@"
 }
 
 cdextract() {
-    python3 -m psx.cd extract "$@"
+    "$python" -m psx.cd extract "$@"
 }
 
 cdb() {
-    python3 -m galsdk.db "$@"
+    "$python" -m galsdk.db "$@"
 }
 
 sdb() {
-    python3 -m galsdk.string "$@"
+    "$python" -m galsdk.string "$@"
 }
 
 mxa() {
-    python3 -m galsdk.xa mxa "$@"
+    "$python" -m galsdk.xa mxa "$@"
 }
 
 header() {
@@ -81,7 +109,7 @@ build_patches() {
         then
             "$as" -o "$object_path" --no-pad-sections -EL -mips1 -mno-pdr "$f"
             echo "SECTIONS { . = 0x$address; .text . : SUBALIGN(0) { *(.text) } /DISCARD/ : { *(*) } }" > ./exe/src/linker.ld
-            "$ld" -e "0x$address" --oformat binary -o "$bin_path" -T ./exe/src/linker.ld -s "$object_path"
+            "$ld" -s -e "0x$address" --oformat binary -o "$bin_path" -T ./exe/src/linker.ld "$object_path"
         fi
     done
 }
@@ -99,8 +127,20 @@ skip_na_copy=false
 force_index=false
 force_export=false
 skip_subs=false
+skip_fmvs=false
 force_patch=false
 force_assemble=false
+skip_assemble=false
+skip_dialogue=false
+skip_sound=false
+skip_delta=false
+
+# commands
+java=java
+python=python3
+ffmpeg=ffmpeg
+xdelta=xdelta3
+compression=lzma
 # tools come from binutils-mips-linux-gnu
 as=mips-linux-gnu-as
 ld=mips-linux-gnu-ld
@@ -130,13 +170,54 @@ do
             force_index=true
             force_export=true
             skip_subs=false
+            skip_fmvs=false
             force_patch=true
+            # force_assemble is intentionally omitted because the binaries should be packaged with the repo
+            skip_assemble=false
+            skip_dialogue=false
+            skip_sound=false
+            skip_delta=false
             ;;
         --skip-subs)
             skip_subs=true
             ;;
+        --skip-fmvs)
+            skip_fmvs=true
+            ;;
         --force-assemble)
             force_assemble=true
+            ;;
+        --skip-assemble)
+            skip_assemble=true
+            ;;
+        --skip-dialogue)
+            skip_dialogue=true
+            ;;
+        --skip-sound)
+            skip_sound=true
+            ;;
+        --skip-delta)
+            skip_delta=true
+            ;;
+        --java)
+            shift
+            java=$1
+            ;;
+        --python)
+            shift
+            python=$1
+            ;;
+        --ffmpeg)
+            shift
+            ffmpeg=$1
+            ;;
+        --xdelta)
+            shift
+            xdelta=$1
+            ;;
+        --compression)
+            shift
+            compression=$1
             ;;
         --as)
             shift
@@ -157,29 +238,53 @@ done
 header Copying disc images
 if [[ "$force_jp_copy" = true || ! -e ./discs/jp_disc1.bin ]]
 then
+    echo -n "Copying JP disc 1... "
     cp -f "$jp_disc1_in" ./discs/jp_disc1.bin
+    echo done
+else
+    echo JP disc 1 already exists
 fi
 if [[ "$force_jp_copy" = true || ! -e ./discs/jp_disc2.bin ]]
 then
+    echo -n "Copying JP disc 2... "
     cp -f "$jp_disc2_in" ./discs/jp_disc2.bin
+    echo done
+else
+    echo JP disc 2 already exists
 fi
 if [[ "$force_jp_copy" = true || ! -e ./discs/jp_disc3.bin ]]
 then
+    echo -n "Copying JP disc 3... "
     cp -f "$jp_disc3_in" ./discs/jp_disc3.bin
+    echo done
+else
+    echo JP disc 3 already exists
 fi
 
 # the layout of the NA discs is changed by the undub process, so we default to coyping them to be safe
 if [[ "$skip_na_copy" = false || ! -e ./discs/na_disc1.bin ]]
 then
+    echo -n "Copying NA disc 1... "
     cp -f "$na_disc1_in" ./discs/na_disc1.bin
+    echo done
+else
+    echo Skipping NA disc 1 copy
 fi
 if [[ "$skip_na_copy" = false || ! -e ./discs/na_disc2.bin ]]
 then
+    echo -n "Copying NA disc 2... "
     cp -f "$na_disc2_in" ./discs/na_disc2.bin
+    echo done
+else
+    echo Skipping NA disc 2 copy
 fi
 if [[ "$skip_na_copy" = false || ! -e ./discs/na_disc3.bin ]]
 then
+    echo -n "Copying NA disc 3... "
     cp -f "$na_disc3_in" ./discs/na_disc3.bin
+    echo done
+else
+    echo Skipping NA disc 3 copy
 fi
 
 # create indexes
@@ -190,6 +295,8 @@ do
     if [[ "$force_index" = true || ! -e "$index_path" ]]
     then
         jpsxdec -f "$f" -x "$index_path"
+    else
+        echo $index_path already exists
     fi
 done
 
@@ -200,14 +307,20 @@ header Exporting videos
 if [[ "$force_export" = true || ! -e ./movies/videos/B_M18XA.avi ]]
 then
     export_videos 1
+else
+    echo Disc 1 videos already exported
 fi
 if [[ "$force_export" = true || ! -e ./movies/videos/C_M21XA.avi ]]
 then
     export_videos 2
+else
+    echo Disc 2 videos already exported
 fi
 if [[ "$force_export" = true || ! -e ./movies/videos/D_M12XA.avi ]]
 then
     export_videos 3
+else
+    echo Disc 3 videos already exported
 fi
 
 # cleanup
@@ -229,7 +342,7 @@ then
         video_name=$(basename "$f" | cut -d'-' -f1)
         file_index=$(basename "$f" | cut -d'-' -f2 | cut -d'.' -f1)
         patch_path=./movies/patches/$video_name.xml
-        ffmpeg -i ./movies/videos/$video_name.avi -vf subtitles="$f" -fps_mode passthrough ./movies/frames/%d.png
+        "$ffmpeg" -i ./movies/videos/$video_name.avi -vf subtitles="$f" -fps_mode passthrough ./movies/frames/%d.png
         if [[ "$force_patch" = true || ! -e "$patch_path" ]]
         then
             echo \<?xml version=\"1.0\"?\> > $patch_path
@@ -302,7 +415,7 @@ then
                 # pre-increment jp_frame because ffmpeg uses 1-based indexes
                 jp_path=./movies/frames/$(( ++jp_frame )).png
                 # ffmpeg can't edit files in place, so output to a temp image then replace the original
-                ffmpeg -y -i "$jp_path" -i ./movies/title_frames/$(( na_frame++ )).png -filter_complex "[1]crop=$w:$h:$x:$y[t];[0][t]overlay=$x:$y" -update 1 ./movies/frames/tmp.png
+                "$ffmpeg" -y -i "$jp_path" -i ./movies/title_frames/$(( na_frame++ )).png -filter_complex "[1]crop=$w:$h:$x:$y[t];[0][t]overlay=$x:$y" -update 1 ./movies/frames/tmp.png
                 mv -f ./movies/frames/tmp.png "$jp_path"
                 ((num_frames--))
             done
@@ -313,14 +426,37 @@ then
         jpsxdec -x ./discs/jp_disc$disc_num.bin.idx -i $(( file_index - 1 )) -dir ./movies/raw -raw
     done
 
-    # patch raw videos into the NA discs
-    header Patching FMVs
-
+    # move videos up from subdirectories
     for f in $(find ./movies/raw/T4 -type f -name \*.STR)
     do
         name=$(basename $f | cut -d'.' -f1)
         mv "$f" ./movies/raw/$name.STR
     done
+
+    # cleanup
+    rm -f ./movies/frames/*.png
+    rm -f ./movies/title_frames/*.png
+    rmdir_safe ./movies/frames/T4/MOV
+    rmdir_safe ./movies/frames/T4/MOV_B
+    rmdir_safe ./movies/frames/T4/MOV_C
+    rmdir_safe ./movies/frames/T4/MOV_D
+    rmdir_safe ./movies/frames/T4
+    rmdir_safe ./movies/title_frames/T4/MOV
+    rmdir_safe ./movies/title_frames/T4/MOV_B
+    rmdir_safe ./movies/title_frames/T4/MOV_C
+    rmdir_safe ./movies/title_frames/T4/MOV_D
+    rmdir_safe ./movies/title_frames/T4
+    rmdir_safe ./movies/raw/T4/MOV
+    rmdir_safe ./movies/raw/T4/MOV_B
+    rmdir_safe ./movies/raw/T4/MOV_C
+    rmdir_safe ./movies/raw/T4/MOV_D
+    rmdir_safe ./movies/raw/T4
+fi
+
+# patch raw videos into the NA discs
+if [[ "$skip_fmvs" = false ]]
+then
+    header Patching FMVs
 
     for f in ./movies/raw/*.STR
     do
@@ -348,48 +484,81 @@ then
         cdpatch -r ./discs/na_disc$disc_num.bin "\\T4\\MOV$suffix\\$video_name;1" "$f"
         echo done
     done
-
-    # cleanup
-    rm -f ./movies/frames/*.png
-    rm -f ./movies/title_frames/*.png
-    rm -f ./movies/raw/*.STR
-    rmdir_safe ./movies/frames/T4/MOV
-    rmdir_safe ./movies/frames/T4/MOV_B
-    rmdir_safe ./movies/frames/T4/MOV_C
-    rmdir_safe ./movies/frames/T4/MOV_D
-    rmdir_safe ./movies/frames/T4
-    rmdir_safe ./movies/title_frames/T4/MOV
-    rmdir_safe ./movies/title_frames/T4/MOV_B
-    rmdir_safe ./movies/title_frames/T4/MOV_C
-    rmdir_safe ./movies/title_frames/T4/MOV_D
-    rmdir_safe ./movies/title_frames/T4
-    rmdir_safe ./movies/raw/T4/MOV
-    rmdir_safe ./movies/raw/T4/MOV_B
-    rmdir_safe ./movies/raw/T4/MOV_C
-    rmdir_safe ./movies/raw/T4/MOV_D
-    rmdir_safe ./movies/raw/T4
 fi
 
-header Patching dialogue
+# dialogue outside of FMVs
+if [[ "$skip_dialogue" = false ]]
+then
+    header Patching dialogue
 
-build_patches shared
-for disc_num in {1..3}
-do
-    case "$disc_num" in
-        1)
-            jp_exe_name=SLPS_021.92
-            na_exe_name=SLUS_009.86
-            ;;
-        2)
-            jp_exe_name=SLPS_021.93
-            na_exe_name=SLUS_010.98
-            ;;
-        3)
-            jp_exe_name=SLPS_021.94
-            na_exe_name=SLUS_010.99
-            ;;
-    esac
+    build_patches shared
+    for disc_num in {1..3}
+    do
+        case "$disc_num" in
+            1)
+                jp_exe_name=SLPS_021.92
+                na_exe_name=SLUS_009.86
+                ;;
+            2)
+                jp_exe_name=SLPS_021.93
+                na_exe_name=SLUS_010.98
+                ;;
+            3)
+                jp_exe_name=SLPS_021.94
+                na_exe_name=SLUS_010.99
+                ;;
+        esac
 
+        rm -f ./voice/extract/SL*
+        rm -f ./voice/extract/*.BIN
+        rm -f ./voice/extract/DISPLAY.CDB
+        rm -f ./voice/extract/strings.txt
+        rm -f ./voice/mxa/XA.MXA
+        rm -f ./voice/mxa/*.XDB
+        rm -f ./voice/display/0*
+        echo -n "Extracting from disc $disc_num... "
+        cdextract ./discs/na_disc$disc_num.bin ./voice/extract "\\$na_exe_name;1" '\T4\DISPLAY.CDB;1'
+        cdextract ./discs/jp_disc$disc_num.bin ./voice/extract "\\T4\\$jp_exe_name;1"
+        cdextract -r ./discs/jp_disc$disc_num.bin ./voice/extract '\T4\XA'
+        echo done
+
+        # patch the exe to display subtitles for XA audio
+        echo -n "Patching EXE... "
+        build_patches $disc_num
+        for f in ./exe/bin/*.shared.bin ./exe/bin/*.$disc_num.bin
+        do
+            address=$(basename "$f" | cut -d'.' -f1)
+            exepatch "./voice/extract/$na_exe_name" "$address" "$f"
+        done
+        cdpatch ./discs/na_disc$disc_num.bin "\\$na_exe_name;1" "./voice/extract/$na_exe_name"
+        echo done
+
+        # export Japanese dialogue to Western format
+        echo -n "Patching audio... "
+        cdb unpack ./voice/extract/DISPLAY.CDB ./voice/display
+        mxa -m "./voice/mxa/$disc_num.json" "./voice/extract/$jp_exe_name" "$disc_num" ./voice/mxa $(find ./voice/extract -name \*.BIN | sort)
+        xdb_name=$(printf '%03d' $(( disc_num - 1 )))
+        mv -f "./voice/mxa/$xdb_name.XDB" "./voice/display/$xdb_name"
+        cdpatch -r ./discs/na_disc$disc_num.bin '\T4\XA.MXA;1' ./voice/mxa/XA.MXA
+        echo done
+
+        # add subtitle messages
+        echo -n "Patching messages... "
+        for f in ./voice/subs/*.txt
+        do
+            index=$(basename "$f" | cut -d'.' -f1)
+            sdb unpack "./voice/display/$index" ./voice/extract/strings.txt
+            cat "$f" >> ./voice/extract/strings.txt
+            sdb pack ./voice/extract/strings.txt "./voice/display/$index"
+        done
+        cdb pack ./voice/extract/DISPLAY.CDB $(find ./voice/display -name 0\* | sort)
+        cdpatch ./discs/na_disc$disc_num.bin '\T4\DISPLAY.CDB;1' ./voice/extract/DISPLAY.CDB
+        echo done
+    done
+
+    # cleanup
+    rm -f ./exe/bin/*.o
+    rm -f ./exe/src/*.ld
     rm -f ./voice/extract/SL*
     rm -f ./voice/extract/*.BIN
     rm -f ./voice/extract/DISPLAY.CDB
@@ -397,55 +566,43 @@ do
     rm -f ./voice/mxa/XA.MXA
     rm -f ./voice/mxa/*.XDB
     rm -f ./voice/display/0*
-    echo -n "Extracting from disc $disc_num... "
-    cdextract ./discs/na_disc$disc_num.bin ./voice/extract "\\$na_exe_name;1" '\T4\DISPLAY.CDB;1'
-    cdextract ./discs/jp_disc$disc_num.bin ./voice/extract "\\T4\\$jp_exe_name;1"
-    cdextract -r ./discs/jp_disc$disc_num.bin ./voice/extract '\T4\XA'
-    echo done
+fi
 
-    # patch the exe to display subtitles for XA audio
-    echo -n "Patching EXE... "
-    build_patches $disc_num
-    for f in ./exe/bin/*.shared.bin ./exe/bin/*.$disc_num.bin
+# NPC barks like "Rion!" and "This way!"
+if [[ "$skip_sound" = false ]]
+then
+    header Patching sound
+
+    for disc_num in {1..3}
     do
-        address=$(basename "$f" | cut -d'.' -f1)
-        exepatch "./voice/extract/$na_exe_name" "$address" "$f"
+        echo -n "Patching disc $disc_num sound... "
+        rm -f ./sound/SOUND.CDB
+        cdextract ./discs/jp_disc$disc_num.bin ./sound '\T4\SOUND.CDB;1'
+        cdpatch ./discs/na_disc$disc_num.bin '\T4\SOUND.CDB;1' ./sound/SOUND.CDB
+        echo done
     done
-    cdpatch ./discs/na_disc$disc_num.bin "\\$na_exe_name;1" "./voice/extract/$na_exe_name"
+
+    rm -f ./sound/SOUND.CDB
+fi
+
+if [[ "$skip_delta" = false ]]
+then
+    header Creating patches
+
+    rm -f ./output/*.xdelta
+
+    echo -n "Creating patch for disc 1... "
+    "$xdelta" -S "$compression" -s "$na_disc1_in" ./discs/na_disc1.bin ./output/disc1.xdelta
     echo done
 
-    # export Japanese dialogue to Western format
-    echo -n "Patching audio... "
-    cdb unpack ./voice/extract/DISPLAY.CDB ./voice/display
-    mxa -m "./voice/mxa/$disc_num.json" "./voice/extract/$jp_exe_name" "$disc_num" ./voice/mxa $(find ./voice/extract -name \*.BIN | sort)
-    xdb_name=$(printf '%03d' $(( disc_num - 1 )))
-    mv -f "./voice/mxa/$xdb_name.XDB" "./voice/display/$xdb_name"
-    cdpatch -r ./discs/na_disc$disc_num.bin '\T4\XA.MXA;1' ./voice/mxa/XA.MXA
+    echo -n "Creating patch for disc 2... "
+    "$xdelta" -S "$compression" -s "$na_disc2_in" ./discs/na_disc2.bin ./output/disc2.xdelta
     echo done
 
-    # add subtitle messages
-    echo -n "Patching messages... "
-    for f in ./voice/subs/*.txt
-    do
-        index=$(basename "$f" | cut -d'.' -f1)
-        sdb unpack "./voice/display/$index" ./voice/extract/strings.txt
-        cat "$f" >> ./voice/extract/strings.txt
-        sdb pack ./voice/extract/strings.txt "./voice/display/$index"
-    done
-    cdb pack ./voice/extract/DISPLAY.CDB $(find ./voice/display -name 0\* | sort)
-    cdpatch ./discs/na_disc$disc_num.bin '\T4\DISPLAY.CDB;1' ./voice/extract/DISPLAY.CDB
+    echo -n "Creating patch for disc 3... "
+    "$xdelta" -S "$compression" -s "$na_disc3_in" ./discs/na_disc3.bin ./output/disc3.xdelta
     echo done
-done
+fi
 
-# cleanup
-rm -f ./exe/bin/*.o
-rm -f ./exe/src/*.ld
-rm -f ./voice/extract/SL*
-rm -f ./voice/extract/*.BIN
-rm -f ./voice/extract/DISPLAY.CDB
-rm -f ./voice/extract/strings.txt
-rm -f ./voice/mxa/XA.MXA
-rm -f ./voice/mxa/*.XDB
-rm -f ./voice/display/0*
-
-echo Done
+echo
+echo Undub process complete. Patches can be found in the output folder.
